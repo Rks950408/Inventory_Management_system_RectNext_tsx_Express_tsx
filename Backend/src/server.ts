@@ -36,7 +36,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Inventory API is running...aaa");
+  res.send("Inventory Aarya Motor Tour and Travels APIs is running..");
 });
 
 const PORT = process.env.PORT || 5000;

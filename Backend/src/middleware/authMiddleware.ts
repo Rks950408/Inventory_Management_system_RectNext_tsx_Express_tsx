@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 // Extend Express Request type to include user info
 interface AuthRequest extends Request {
-    userId?: string;
+    userId?: number;
     userName?: string;
 }
 
@@ -16,7 +16,7 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string; name: string };
+        const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: number; name: string };
         req.userId = decoded.id;
         req.userName = decoded.name;
 

@@ -12,10 +12,35 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-model Item {
-  id        String  @id @default(uuid())
-  name      String
-  price     Float
-  quantity  Int
-  created_at DateTime @default(now())
+model User {
+  id       String  @id @default(uuid())
+  name     String
+  email    String  @unique
+  password String
+  createdAt DateTime @default(now())
+}
+model item_master {
+  id         Int      @id @default(autoincrement())
+  name       String
+  category   String
+  unit_price Decimal
+  image      String
+  status     Boolean
+  brand      brand_master? @relation(fields: [brand_id], references: [id])
+  brand_id   Int?
+  created_at DateTime @default(now()) @map("created_at")
+  updated_at DateTime @updatedAt @map("updated_at")
+}
+
+model brand_master {
+  id         Int      @id @default(autoincrement()) 
+  name       String
+  items      item_master[] // One BrandMaster can have multiple ItemMaster entries
+  status     Boolean
+  created_at DateTime @default(now()) @map("created_at")
+  updated_at DateTime @updatedAt @map("updated_at")
+}
+model purchase_master{
+
+  id Int @id @default(autoincrement())
 }

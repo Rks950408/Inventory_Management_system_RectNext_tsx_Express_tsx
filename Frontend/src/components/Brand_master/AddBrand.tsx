@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header";
 
 const AddBrand: React.FC = () => {
   const navigate = useNavigate();
@@ -45,6 +46,8 @@ const AddBrand: React.FC = () => {
 
   return (
     <div className="container mx-auto mt-5">
+              <Header/>
+
       <h2 className="text-2xl font-bold mb-4">Add Brand</h2>
 
       {message && (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Header from "../Header";
 
 // Define TypeScript interface for form data
 interface SupplierFormData {
@@ -55,6 +56,8 @@ const AddSupplier: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
+              <Header/>
+
       <h2 className="text-2xl font-bold mb-4">Add New Supplier</h2>
       {errorMessage && <p className="mb-4 text-red-500">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>

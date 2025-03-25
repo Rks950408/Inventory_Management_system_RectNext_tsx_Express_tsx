@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header";
 
 interface Item {
   id: number;
@@ -130,6 +131,8 @@ const SaleEntry: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6">
+              <Header/>
+
       <h2 className="text-3xl font-bold mb-6">Sale Entry</h2>
       {successMessage && <div className="text-green-500 font-semibold mb-4">{successMessage}</div>}
       <div className="grid grid-cols-3 gap-4 mb-4">

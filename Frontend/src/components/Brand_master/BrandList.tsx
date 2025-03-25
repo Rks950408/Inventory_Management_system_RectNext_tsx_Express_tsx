@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "../Header";
 
 interface Brand {
   id: number;
@@ -30,6 +31,7 @@ const BrandList: React.FC = () => {
 
   return (
     <div className="container mx-auto mt-5">
+        <Header/>
       <h2 className="text-2xl font-bold mb-4">Brand List</h2>
 
       {message && (

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import Header from "./components/Header";
+import Header from "./components/Header";
 // Import your components as needed
 import Dashboard from "./components/Dashboard/Dashboard";
 import ItemList from "./components/Item_master/Item_list";
@@ -29,8 +29,9 @@ const App: React.FC = () => {
       <div className="flex">
         <div className="content flex-1 p-4">
           <Routes>
-            {/* <Route path="/" element={<Dashboard />} /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/" element={<Home/>} />
+            <Route path="/header" element={<Header/>} />
             <Route path="/item" element={<ItemList />} />
             {/* <Route path="/Backend" element={<></>} */}
             <Route path="/add-item" element={<AddItem />} />

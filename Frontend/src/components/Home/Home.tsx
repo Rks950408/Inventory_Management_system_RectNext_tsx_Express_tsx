@@ -70,10 +70,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Header from "../Header";
 
 const Home: React.FC = () => {
   return (
     <div className="h-screen flex flex-col">
+                <Header/>
+
       {/* Header Section */}
       <header className="bg-indigo-600 text-white p-4 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
@@ -143,7 +146,7 @@ const Home: React.FC = () => {
           </p>
           <p className="flex items-center justify-center space-x-2 text-gray-700">
             <FaMapMarkerAlt className="text-indigo-600" />
-            <span>123, Arya Nagar, New Delhi, India</span>
+            <span>Krishnapuri Road Number 5B, India</span>
           </p>
         </div>
       </section>

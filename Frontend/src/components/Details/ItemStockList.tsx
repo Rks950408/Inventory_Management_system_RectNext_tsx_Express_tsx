@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
+import Header from "../Header";
 
 interface StockItem {
   id: number;
@@ -46,6 +47,8 @@ const ItemStockList: React.FC = () => {
 
   return (
     <div className="p-6">
+              <Header/>
+
       <h2 className="text-2xl font-bold mb-6 text-center">Item Stock List</h2>
 
       <div className="flex justify-between items-center mb-6 space-x-4">

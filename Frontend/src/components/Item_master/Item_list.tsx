@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemRow from "./ItemRow"; // Import the ItemRow component
+import Header from "../Header";
 
 // Define the structure of an Item
 interface Item {
@@ -71,6 +72,8 @@ const ItemList: React.FC = () => {
 
   return (
     <div className="container mx-auto mt-5">
+              <Header/>
+
       <h2 className="text-2xl font-bold mb-4 text-center">Items List</h2>
 
       {/* Search Form */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header";
 
 // Define types for form data and brand data
 interface FormDataType {
@@ -103,6 +104,8 @@ const AddItem: React.FC = () => {
 
   return (
     <div className="container mx-auto mt-5">
+              <Header/>
+
       <h2 className="text-2xl font-bold mb-4">Add Item</h2>
       {message && (
         <div className={`mb-4 p-4 text-white rounded ${message.includes("Error") ? "bg-red-600" : "bg-green-600"}`}>

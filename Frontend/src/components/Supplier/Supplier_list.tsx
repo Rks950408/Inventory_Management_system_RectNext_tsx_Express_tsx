@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Header from "../Header";
 
 // Define TypeScript interface for a Supplier
 interface Supplier {
@@ -31,6 +32,8 @@ const SupplierList: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
+              <Header/>
+
       <h2 className="text-2xl font-bold mb-4">Suppliers List</h2>
       <table className="min-w-full bg-white">
         <thead>

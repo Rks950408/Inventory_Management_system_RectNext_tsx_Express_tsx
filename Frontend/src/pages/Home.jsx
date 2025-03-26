@@ -1,206 +1,129 @@
-import { Link } from "react-router-dom"
-import { Star, Moon, Sun, Clock, Users, MessageCircle } from "lucide-react"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { MapPin, Bike, Car, Star } from "lucide-react";
 
 const Home = () => {
   const navigate = useNavigate();
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-darkBlue via-darkBlue/90 to-darkBlue"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-          <div className="flex items-center mb-6">
-            <Moon className="h-12 w-12 text-lightOrange" />
-            <Star className="h-8 w-8 text-lightOrange ml-2" />
-          </div>
+      <section className="relative py-20 bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700 text-center text-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Discover Your <span className="text-lightOrange">Cosmic Path</span>
+            Discover the World <span className="text-yellow-400">Your Way</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mb-10">
-            Connect with expert astrologers for personalized readings that illuminate your past, present, and future.
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+            Book amazing tours or rent vehicles for your perfect adventure. Experience freedom and flexibility with our premium services.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/register" className="btn-primary text-lg px-8 py-3">
-              Get Started
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/tours" className="btn-primary text-lg px-8 py-3">
+              Explore Tours
             </Link>
-            <button 
-              className="btn-primary mt-6"
-              onClick={() => navigate('/astrologers')}
-            >
-              Explore Services
+            <button className="btn-primary text-lg px-8 py-3" onClick={() => navigate("/rentals")}>
+              Rent Vehicles
             </button>
-          </div>
+            <button className="btn-primary text-lg px-8 py-3" onClick={() => navigate("/rentals")}>
+              Sale Vehicles
+            </button>
+            <button className="btn-primary text-lg px-8 py-3" onClick={() => navigate("/rentals")}>
+              Purchase Preowned Vehicles
+            </button>
+            
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-            <div className="bg-darkBlue-light p-6 rounded-xl border border-darkBlue-lighter">
-              <Star className="h-10 w-10 text-lightOrange mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Daily Horoscope</h3>
-              <p className="text-gray-400">Get personalized daily insights based on your zodiac sign.</p>
-            </div>
-            <div className="bg-darkBlue-light p-6 rounded-xl border border-darkBlue-lighter">
-              <Users className="h-10 w-10 text-lightOrange mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Compatibility</h3>
-              <p className="text-gray-400">
-                Discover how your stars align with friends, family, and potential partners.
-              </p>
-            </div>
-            <div className="bg-darkBlue-light p-6 rounded-xl border border-darkBlue-lighter">
-              <MessageCircle className="h-10 w-10 text-lightOrange mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Live Consultations</h3>
-              <p className="text-gray-400">Chat with experienced astrologers for personalized guidance.</p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-darkBlue-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose <span className="text-lightOrange">FutureTalk</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We combine ancient wisdom with modern technology to provide you with accurate and insightful readings.
-            </p>
+      {/* Featured Tours Section */}
+      <section className="py-16 bg-gray-100 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-center leading-snug bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-transparent bg-clip-text">
+  Featured <span className="text-blue-300">Tours</span>
+</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Mountain Expedition", location: "Himalayan Range", duration: "5 days", capacity: "10 people", price: "$599" },
+              { title: "Beach Paradise", location: "Goa Beaches", duration: "4 days", capacity: "8 people", price: "$499" },
+              { title: "Cultural Heritage", location: "Rajasthan", duration: "7 days", capacity: "12 people", price: "$799" },
+            ].map((tour, index) => (
+              <div key={index} className="bg-white shadow-md p-6 rounded-xl border">
+                <h3 className="text-xl font-semibold mb-2">{tour.title}</h3>
+                <p className="text-gray-600 flex items-center justify-center">
+                  <MapPin className="h-5 w-5 text-blue-500 mr-2" /> {tour.location}
+                </p>
+                <p className="text-gray-500">{tour.duration} | {tour.capacity}</p>
+                <p className="text-xl font-bold text-blue-600 mt-2">{tour.price}</p>
+                <button className="btn-primary mt-4 w-full">Book Now</button>
+              </div>
+            ))}
           </div>
+          <Link to="/tours" className="text-blue-600 text-lg font-semibold mt-6 inline-block">View All Tours</Link>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-darkBlue p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="w-14 h-14 bg-lightOrange/10 rounded-full flex items-center justify-center mb-4">
-                <Users className="h-7 w-7 text-lightOrange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Expert Astrologers</h3>
-              <p className="text-gray-400">Our team consists of certified astrologers with years of experience.</p>
-            </div>
-
-            <div className="bg-darkBlue p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="w-14 h-14 bg-lightOrange/10 rounded-full flex items-center justify-center mb-4">
-                <Clock className="h-7 w-7 text-lightOrange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">24/7 Availability</h3>
-              <p className="text-gray-400">
-                Get readings anytime, anywhere. Our astrologers are available round the clock.
-              </p>
-            </div>
-
-            <div className="bg-darkBlue p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="w-14 h-14 bg-lightOrange/10 rounded-full flex items-center justify-center mb-4">
-                <Sun className="h-7 w-7 text-lightOrange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Accurate Readings</h3>
-              <p className="text-gray-400">Our predictions are based on precise astronomical calculations.</p>
-            </div>
-
-            <div className="bg-darkBlue p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="w-14 h-14 bg-lightOrange/10 rounded-full flex items-center justify-center mb-4">
-                <MessageCircle className="h-7 w-7 text-lightOrange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Private Consultations</h3>
-              <p className="text-gray-400">All readings are confidential and tailored to your specific questions.</p>
-            </div>
+      {/* Rental Options Section */}
+      <section className="py-16 bg-gray-200 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Rental <span className="text-blue-600">Options</span></h2>
+          <div className="flex justify-center gap-6 mb-6">
+            <button className="btn-secondary">Bikes</button>
+            <button className="btn-secondary">Cars</button>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: "Mountain Bike", type: "Self-Drive", price: "₹1200/day", driverPrice: "₹1800/day", icon: Bike },
+          { title: "City Cruiser", type: "Self-Drive", price: "₹1000/day", driverPrice: "₹1600/day", icon: Car },
+          { title: "Electric Bike", type: "Self-Drive", price: "₹2000/day", driverPrice: "₹2500/day", icon: Bike },
+        ].map((rental, index) => (
+          <div key={index} className="bg-white shadow-md p-6 rounded-xl border">
+            <rental.icon className="h-10 w-10 text-blue-600 mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold">{rental.title}</h3>
+            <p className="text-gray-500">{rental.type}</p>
+            <p className="text-xl font-bold text-blue-600 mt-2">Self-Drive: {rental.price}</p>
+            <p className="text-xl font-bold text-green-600">With Driver: {rental.driverPrice}</p>
+            <button className="btn-primary mt-4 w-full">Rent Now</button>
+          </div>
+        ))}
+      </div>
+
+          <Link to="/rentals" className="text-blue-600 text-lg font-semibold mt-6 inline-block">View All Rentals</Link>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Our <span className="text-lightOrange">Clients Say</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Hear from people whose lives have been transformed by our astrological insights.
-            </p>
-          </div>
-
+      <section className="py-16 text-center bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">What Our <span className="text-blue-600">Customers Say</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-darkBlue-light p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="flex items-center mb-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="h-5 w-5 text-lightOrange fill-lightOrange" />
-                ))}
-              </div>
-              <p className="text-gray-300 mb-6">
-                "The reading I received was incredibly accurate. It helped me make an important career decision that I
-                was struggling with for months."
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-lightOrange/20 flex items-center justify-center mr-4">
-                  <span className="text-lightOrange font-bold">JD</span>
+            {[
+              { name: "Rahul Sharma", location: "Delhi", review: "Amazing experience with the mountain expedition tour. The guides were knowledgeable and the arrangements were perfect. Will definitely book again!" },
+              { name: "Priya Patel", location: "Mumbai", review: "Rented a car for our family trip and it was in excellent condition. The process was smooth and the staff was very helpful. Highly recommended!" },
+              { name: "Amit Kumar", location: "Bangalore", review: "The beach paradise tour was wonderful. The only reason for 4 stars is that I wish we had more free time to explore on our own. Otherwise, perfect!" },
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-gray-100 p-6 rounded-xl border">
+                <div className="flex justify-center mb-4">
+                  {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  ))}
                 </div>
-                <div>
-                  <h4 className="font-semibold">John Doe</h4>
-                  <p className="text-gray-400 text-sm">Marketing Executive</p>
-                </div>
+                <p className="text-gray-700 italic">"{testimonial.review}"</p>
+                <h4 className="mt-4 font-bold">{testimonial.name}</h4>
+                <p className="text-gray-500">{testimonial.location}</p>
               </div>
-            </div>
-
-            <div className="bg-darkBlue-light p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="flex items-center mb-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="h-5 w-5 text-lightOrange fill-lightOrange" />
-                ))}
-              </div>
-              <p className="text-gray-300 mb-6">
-                "I was skeptical at first, but the compatibility reading for me and my partner was spot on. It helped us
-                understand each other better."
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-lightOrange/20 flex items-center justify-center mr-4">
-                  <span className="text-lightOrange font-bold">JS</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Jane Smith</h4>
-                  <p className="text-gray-400 text-sm">Teacher</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-darkBlue-light p-6 rounded-xl border border-darkBlue-lighter">
-              <div className="flex items-center mb-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="h-5 w-5 text-lightOrange fill-lightOrange" />
-                ))}
-              </div>
-              <p className="text-gray-300 mb-6">
-                "The daily horoscopes have become part of my morning routine. They provide valuable insights that help
-                me navigate my day with confidence."
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-lightOrange/20 flex items-center justify-center mr-4">
-                  <span className="text-lightOrange font-bold">RJ</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Robert Johnson</h4>
-                  <p className="text-gray-400 text-sm">Software Engineer</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-darkBlue to-darkBlue-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Discover Your <span className="text-lightOrange">Cosmic Path</span>?
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-            Join thousands of satisfied clients who have found clarity and guidance through our astrological services.
-          </p>
-          <Link to="/register" className="btn-primary text-lg px-8 py-3">
-            Start Your Journey Today
-          </Link>
-        </div>
+      {/* Call to Action */}
+      <section className="py-20 bg-blue-900 text-center text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for Your Next Adventure?</h2>
+        <p className="text-lg mb-6">Sign up now to get exclusive deals on tours and rentals. Start planning your perfect getaway today!</p>
+        <Link to="/signup" className="btn-primary text-lg px-8 py-3">Sign Up Now</Link>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;
